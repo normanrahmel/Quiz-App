@@ -1,0 +1,37 @@
+body {
+    background-color: #333333 !important;
+    margin: 0;
+}
+
+.h1 {
+    font-size: 35px;
+}
+
+.containerCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    min-height: 100vh;
+}
+
+
+/*Footer*/
+
+footer {
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    padding: 80px;
+    height: 150px;
+    background-color: #8e8e8e
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
