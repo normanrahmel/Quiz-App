@@ -15,6 +15,35 @@ body {
     min-height: 100vh;
 }
 
+.quizCard {
+    width: 600px;
+}
+
+.containerCardImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px;
+}
+
+.card-img-top {
+    width: 250px;
+    height: 250px;
+}
+
+.card {
+    margin: 8px;
+}
+
+.questionFooter {
+    border-top: 1px solid rgba(0, 0, 0, 0.549);
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    margin: 8px;
+    align-items: center;
+}
+
 
 /*Footer*/
 
