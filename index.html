@@ -29,10 +29,25 @@
     <!-- Card -->
     <div class="containerCard">
         <div class="card quizCard">
-            <div class="containerCardImg">
+
+            <!-- Container Bild -->
+            <div class="containerCardImg" id="questionMarkPicture">
                 <img src="img/fragezeichen.png" class="card-img-top">
             </div>
-            <div class="card-body">
+
+            <!-- Container für Endscreen -->
+            <div class="card-body marginContainer" id="endScreen" style="display: none;">
+                <h2>Quiz beendet!</h2>
+                <div class="marginContainer">
+                    <img src="img/winner.jpg">
+                </div>
+                <div class="marginContainer">
+                    <h4>Du hast <b>xxx</b> Fragen von <b>xxx</b> Fragen <b>richtig</b> Beantwortet!</h4>
+                </div>
+            </div>
+
+            <!-- Container Fragen -->
+            <div class="card-body" id="quizBody">
                 <h5 class="card-title" id="questionText">Frage</h5>
 
                 <div class="card mb-2 quizAnswer" onclick="answer('answer1')">
@@ -61,10 +76,10 @@
 
                 <div class="questionFooter">
                     <span>
-                    <b>1</b> von <b id="allQuestions">5</b> Frage
+                    <b id="questionNumber">1</b> von <b id="allQuestions">5</b> Frage
                     </span>
 
-                    <button class="btn btn-primary">Nächste Frage</button>
+                    <button onclick="nextQuestion()" class="btn btn-primary" disabled id="nextButton">Nächste Frage</button>
                 </div>
 
             </div>

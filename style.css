@@ -51,6 +51,23 @@ body {
     background-color: rgba(0, 0, 0, 0.0518)
 }
 
+.bg-success,
+.bg-danger {
+    color: white;
+}
+
+#endScreen {
+    text-align: center;
+}
+
+#endScreen img {
+    width: 100%;
+}
+
+.marginContainer {
+    padding: 16px;
+}
+
 
 /*Footer*/
 
@@ -70,4 +87,23 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 850px) {
+    footer {
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        display: flex;
+        height: 200px;
+        word-wrap: break-word;
+    }
+    .law {
+        margin-top: 16px;
+        word-wrap: break-word;
+    }
+    .socialMedia {
+        margin-bottom: 16px;
+        margin-top: 16px;
+    }
 }
