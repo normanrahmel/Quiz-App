@@ -11,8 +11,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 50px;
-    min-height: 100vh;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 150px;
+    margin-top: 10px;
 }
 
 .quizCard {
@@ -42,6 +44,11 @@ body {
     padding: 8px;
     margin: 8px;
     align-items: center;
+}
+
+.quizAnswer:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.0518)
 }
 
 
