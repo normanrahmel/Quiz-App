@@ -68,6 +68,15 @@ body {
     padding: 16px;
 }
 
+.containerEndProgressbar {
+    padding-bottom: 16px;
+}
+
+.buttonRestart {
+    display: flex;
+    justify-content: center;
+}
+
 
 /*Footer*/
 

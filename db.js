@@ -15,6 +15,7 @@ let questions = [{
         "rightAnswer": 3
     },
     /*
+
         {
             "question": "Wie viele Runden gibt es im Profiboxen höchstens?",
             "answer1": "10",
@@ -58,7 +59,7 @@ let questions = [{
             "question": "Wer entwickelte die Rechenmaschine Analytical Engine",
             "answer1": "Charles Babbage",
             "answer2": "Konrad Zuse",
-            "answer3": "Nina Riedelbauch",
+            "answer3": "Jörg Pfaff",
             "answer4": "Cedric Rahmel",
             "rightAnswer": 1
         },
@@ -72,3 +73,5 @@ let questions = [{
         }*/
 ];
 let currentQuestion = 0;
+
+let rightQuestions = 0;
