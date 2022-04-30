@@ -6,28 +6,52 @@ function init() {
 
 
 function showQuestion() {
-    if (currentQuestion >= questions.length) {
-        document.getElementById('endScreen').style = '';
-        document.getElementById('quizBody').style = 'display: none;';
-        document.getElementById('questionMarkPicture').style = 'display: none;';
-        document.getElementById('progressEndScreen').style = 'display: none;';
-        document.getElementById('amountOfQuestions').innerHTML = questions.length;
-        document.getElementById('amountOfRightQuestions').innerHTML = rightQuestions;
+    if (gameIsOver()) {
+        showEndScreen();
     } else {
-        let percent = (currentQuestion + 1) / questions.length; //Ausrechnen der Progress-Bar
-        percent = Math.round(percent * 100); //Erst wird das ganze ausgerechnet und dann wird das ganze mit Math.round gerundet
-        document.getElementById('progressBar').innerHTML = `${percent}%`
-        document.getElementById('progressBar').style = `width: ${percent}%;`
-
-        let question = questions[currentQuestion];
-        document.getElementById('questionNumber').innerHTML = currentQuestion + 1;
-        //Hier zeige ich die Aktuelle Frage an als z.B 2 von 7
-        document.getElementById('questionText').innerHTML = question['question'];
-        document.getElementById('answer1').innerHTML = question['answer1'];
-        document.getElementById('answer2').innerHTML = question['answer2'];
-        document.getElementById('answer3').innerHTML = question['answer3'];
-        document.getElementById('answer4').innerHTML = question['answer4'];
+        updateProgressBar();
+        shownextQuestion();
     }
+}
+
+
+function gameIsOver() {
+    return currentQuestion >= questions.length;
+    //Wenn currentQuestion 7 ist kommt aus dieser function true raus und der End-Screen wird angezeigt.
+}
+
+
+function showEndScreen() {
+    //Zeigt mir den Endscreen an 
+    document.getElementById('endScreen').style = '';
+    document.getElementById('quizBody').style = 'display: none;';
+    document.getElementById('questionMarkPicture').style = 'display: none;';
+    document.getElementById('progressEndScreen').style = 'display: none;';
+    document.getElementById('amountOfQuestions').innerHTML = questions.length;
+    document.getElementById('amountOfRightQuestions').innerHTML = rightQuestions;
+}
+
+
+function shownextQuestion() {
+    //Zeigt mir immer die nächste Frage an 
+    let question = questions[currentQuestion];
+    document.getElementById('questionNumber').innerHTML = currentQuestion + 1;
+    //Hier zeige ich die Aktuelle Frage an als z.B 2 von 7
+    document.getElementById('questionText').innerHTML = question['question'];
+    document.getElementById('answer1').innerHTML = question['answer1'];
+    document.getElementById('answer2').innerHTML = question['answer2'];
+    document.getElementById('answer3').innerHTML = question['answer3'];
+    document.getElementById('answer4').innerHTML = question['answer4'];
+}
+
+
+function updateProgressBar() {
+    //Berechnet mir immer meinen Fortschritt
+    let percent = (currentQuestion + 1) / questions.length; //Ausrechnen der Progress-Bar
+    percent = Math.round(percent * 100); //Erst wird das ganze ausgerechnet und dann wird das ganze mit Math.round gerundet
+
+    document.getElementById('progressBar').innerHTML = `${percent}%`
+    document.getElementById('progressBar').style = `width: ${percent}%;`
 }
 
 
@@ -37,15 +61,22 @@ function answer(selection) {
     // mit .slice(-1) hole ich mir das letze Zeichen von einem String
     let idOfRightAnswer = `answer${question['rightAnswer']}`;
 
-    if (selectedQuestionNumber == question['rightAnswer']) {
+    if (rightAnswerSelected(selectedQuestionNumber, question)) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
         // mit .parentNode hole ich mir das Übergeordnete HTML Element
+        audioSuccess.play();
         rightQuestions++;
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+        audioWrong.play();
     }
     document.getElementById('nextButton').disabled = false;
+}
+
+
+function rightAnswerSelected(selectedQuestionNumber, question) {
+    return selectedQuestionNumber == question['rightAnswer'];
 }
 
 
@@ -68,11 +99,17 @@ function resetAnswers() {
     document.getElementById('answer4').parentNode.classList.remove('bg-success');
 }
 
+
 function restartGame() {
-    //document.getElementById('headerImg').src = 'img/fragezeichen.png';
+    window.location.reload();
+    /*
+    //Zweite möglichkeit das Spiel neu zu Laden
+
+    document.getElementById('headerImg').src = 'img/fragezeichen.png';
     document.getElementById('quizBody').style = ''; // Question-Container Einblenden 
     document.getElementById('endScreen').style = 'display: none;'; //Endscreen Ausblenden 
     currentQuestion = 0;
     rightQuestions = 0;
     init();
+    */
 }

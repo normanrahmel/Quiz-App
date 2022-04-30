@@ -75,3 +75,7 @@ let questions = [{
 let currentQuestion = 0;
 
 let rightQuestions = 0;
+
+let audioSuccess = new Audio('Audio/success.mp3');
+
+let audioWrong = new Audio('Audio/wrong.mp3');
