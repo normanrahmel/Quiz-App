@@ -64,11 +64,13 @@ function answer(selection) {
     if (rightAnswerSelected(selectedQuestionNumber, question)) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
         // mit .parentNode hole ich mir das Übergeordnete HTML Element
+        document.getElementById('containerAnswer').classList.add('disabledbutton');
         audioSuccess.play();
         rightQuestions++;
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+        document.getElementById('containerAnswer').classList.add('disabledbutton');
         audioWrong.play();
     }
     document.getElementById('nextButton').disabled = false;
@@ -76,6 +78,7 @@ function answer(selection) {
 
 
 function rightAnswerSelected(selectedQuestionNumber, question) {
+
     return selectedQuestionNumber == question['rightAnswer'];
 }
 
@@ -97,6 +100,7 @@ function resetAnswers() {
     document.getElementById('answer3').parentNode.classList.remove('bg-success');
     document.getElementById('answer4').parentNode.classList.remove('bg-danger');
     document.getElementById('answer4').parentNode.classList.remove('bg-success');
+    document.getElementById('containerAnswer').classList.remove('disabledbutton');
 }
 
 
