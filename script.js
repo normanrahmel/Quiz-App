@@ -97,18 +97,9 @@ function resetAnswers() {
 
 function restartGame() {
   window.location.reload();
-  /*
-    //Zweite möglichkeit das Spiel neu zu Laden
-
-    document.getElementById('headerImg').src = 'img/fragezeichen.png';
-    document.getElementById('quizBody').style = ''; // Question-Container Einblenden 
-    document.getElementById('endScreen').style = 'display: none;'; //Endscreen Ausblenden 
-    currentQuestion = 0;
-    rightQuestions = 0;
-    init();
-    */
 }
 
+//Login
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("login-form");
 
