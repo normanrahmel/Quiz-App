@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <!-- bootstrap-->
+    <!-- Filse-->
+    <script src="db.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+
+    <title>Quiz-App</title>
+  </head>
+
+  <body onload="init()">
+    <div id="main-content">
+      <!-- Heading -->
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <h1 class="navbar-brand mb-0 h1">Quiz-App</h1>
+        </div>
+      </nav>
+      <!-- Card -->
+      <!-- Füge eine Dropdown-Auswahl für die Anzahl der Spieler hinzu -->
+      <div class="player-select-container">
+        <label for="playerCount">Spieleranzahl:</label>
+        <select name="playerCount" id="playerCount">
+          <option value="1">1 Spieler</option>
+          <option value="2">2 Spieler</option>
+        </select>
+      </div>
+
+      <div class="containerCard">
+        <div class="card quizCard" id="quizCard">
+          <!-- Container Fragezeichen-Bild -->
+          <div class="containerCardImg" id="questionMarkPicture">
+            <img src="img/fragezeichen.png" class="card-img-top" />
+          </div>
+
+          <!-- Progress-Bar -->
+          <div class="progress" id="progressEndScreen">
+            <div
+              id="progressBar"
+              class="progress-bar"
+              role="progressbar"
+              style="width: 25%"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              25%
+            </div>
+          </div>
+
+          <!-- Container für Endscreen -->
+          <div
+            class="card-body marginContainer"
+            id="endScreen"
+            style="display: none"
+          >
+            <h2>Quiz beendet!</h2>
+            <div class="marginContainer">
+              <img src="img/winner.jpg" />
+            </div>
+            <div class="marginContainer">
+              <span
+                >Du hast <b id="amountOfRightQuestions">X</b> Fragen von
+                <b id="amountOfQuestions">X</b> Fragen
+                <b>richtig</b> Beantwortet!</span
+              >
+            </div>
+            <div class="buttonRestart">
+              <button onclick="restartGame()" class="btn btn-primary">
+                Erneut Spielen
+              </button>
+            </div>
+          </div>
+
+          <!-- Container Fragen -->
+          <div class="card-body" id="quizBody">
+            <h5 class="card-title" id="questionText">Frage</h5>
+            <div id="containerAnswer">
+              <div class="card mb-2 quizAnswer" onclick="answer('answer1')">
+                <div class="card-body" id="answer1"></div>
+              </div>
+
+              <div class="card mb-2 quizAnswer" onclick="answer('answer2')">
+                <div class="card-body" id="answer2"></div>
+              </div>
+
+              <div class="card mb-2 quizAnswer" onclick="answer('answer3')">
+                <div class="card-body" id="answer3"></div>
+              </div>
+
+              <div class="card mb-2 quizAnswer" onclick="answer('answer4')">
+                <div class="card-body" id="answer4"></div>
+              </div>
+            </div>
+            <div class="questionFooter">
+              <span>
+                <b id="questionNumber">1</b> von
+                <b id="allQuestions">5</b> Frage
+              </span>
+
+              <button
+                onclick="nextQuestion()"
+                class="btn btn-primary"
+                disabled
+                id="nextButton"
+              >
+                Nächste Frage
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="Footer-Pos">
+        <div class="paddingLeftRight footer-fields">
+          <div>©Copyright 2023</div>
+          <div class="law">
+            <a href="datenschutz.html" target="_blank">Datenschutz</a> |
+            <a href="impressum.html" target="_blank">Impressum</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const password = document.getElementById("password").value;
 
     if (username === "Gast" && password === "Test123") {
-      window.location.href = "index.html";
+      window.location.href = "main.html";
     } else {
       alert("Falscher Benutzername oder Passwort.");
     }
