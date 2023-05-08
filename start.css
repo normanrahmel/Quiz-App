@@ -1,64 +1,109 @@
-    body {
-        background-image: url("img/quiztime.jpg");
+
+
+
+    form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    }
+
+    body, html {
+        height: 100%;
         margin: 0;
-        background-size: contain;
-        height: 100vh;
+        font-family: Arial, sans-serif;
     }
     
-    .button-36 {
-        background-image: linear-gradient(92.88deg, #fd83eb 9.16%, #ff95d5 43.89%, #02fccf 64.72%);
-        border-radius: 8px;
-        border-style: none;
-        box-sizing: border-box;
-        color: #FFFFFF;
-        cursor: pointer;
-        flex-shrink: 0;
-        font-weight: 500;
-        height: 4rem;
-        padding: 0 1.6rem;
-        text-align: center;
-        text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
-        transition: all .5s;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        height: 110px !important;
-        width: 300px;
-        font-size: 35px !important;
-    }
-    
-    .button-36:hover {
-        box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
-        transition-duration: .1s;
-    }
-    
-    .overlineAndButtonPosition {
-        align-items: flex-end;
+    .image-container {
         display: flex;
-        justify-content: flex-end;
-        padding: 65px;
+        justify-content: center;
+        align-items: center;
+        height: 50%; /* Höhe des Bildbereichs auf 50% setzen */
+        max-height: 550px; /* Maximale Höhe des Bildbereichs auf 450px setzen */
+    }
+    
+    .image-container img {
+        max-width: 100%; /* An die Bildschirmbreite anpassen */
+        max-height: 100%; /* An die Bildschirmhöhe anpassen */
+        max-width: 550px; /* Maximale Breite des Bildes auf 450px begrenzen */
+        max-height: 550px; /* Maximale Höhe des Bildes auf 450px begrenzen */
+    }
+    
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 0%; /* Höhe des Login-Bereichs auf 50% setzen */
+    }
+    h1 {
+        
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+    
+    #login-form input {
+        width: 100%;
+        max-width: 300px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+        transition: 0.3s;
+        width: 500px;
+    }
+    
+    #login-form input:focus {
+        border: 2px solid #4CAF50;
+    }
+    
+    #login-btn {
+        background-color: #4CAF50;
         color: white;
-        font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+        font-size: 24px;
+        padding: 12px 24px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: 0.3s;
+        width: 100%;
+        max-width: 300px;
     }
     
-    @media(max-width: 1650px) {
-        body {
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
+    #login-btn:hover {
+        background-color: #45a049;
+    }
+   
+    @media (max-width: 768px) {
+        .background {
+            height: 40%;
+        }
+        
+        .login-container {
+            height: 60%;
         }
     }
     
-    @media(max-width: 1250px) {
-        .button-36 {
-            width: 250px;
-            height: 100px;
+    @media (max-width: 480px) {
+        .background {
+            height: 30%;
         }
-    }
+        
+        .login-container {
+            height: 70%;
+        }
     
-    @media(max-width: 555px) {
-        .button-36 {
-            width: 190px;
-            height: 80px;
+        h1 {
+            font-size: 32px;
+        }
+    
+        #login-form input {
+            font-size: 16px;
+        }
+    
+        #login-btn {
+            font-size: 18px;
         }
     }
